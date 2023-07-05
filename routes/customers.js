@@ -20,12 +20,10 @@ router.get('/', function(req, res, next) {
       });
       await client.connect();
       const res = await client.query('SELECT * FROM customers;', ['Connection to postgres successful!']);
-      console.log(res.rows[0].connected);
+      console.log(res);
       await client.end();
+      res.send(res);
     })();
-
-
-    res.send('respond with a JSON array of customers');
 });
 
 module.exports = router;
