@@ -16,10 +16,10 @@ router.get('/', function(req, res, next) {
         user: process.env.PG_USER,
         password: process.env.PG_PASSWORD,
         database: process.env.PG_DATABASE,
-        ssl: true,
+        ssl: false,
       });
       await client.connect();
-      const res = await client.query('SELECT * FROM customers', ['Connection to postgres successful!']);
+      const res = await client.query('SELECT * FROM customers;', ['Connection to postgres successful!']);
       console.log(res.rows[0].connected);
       await client.end();
     })();
