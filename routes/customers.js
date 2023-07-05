@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
       const results = await client.query('SELECT * FROM customers');
 //      console.log(res);
       await client.end();
-      response.status(200).json(results.rows)
+      res.status(200).json(results.rows)
     })();
 });
 
