@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
         ssl: false,
       });
       await client.connect();
-      const res = await client.query('SELECT * FROM customers;', ['Connection to postgres successful!']);
+      const res = await client.query('SELECT * FROM customers');
       console.log(res);
       await client.end();
       res.send(res);
