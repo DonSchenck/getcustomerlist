@@ -22,7 +22,6 @@ router.get('/', function(req, res, next) {
       const res = await client.query('SELECT * FROM customers');
       console.log(res);
       await client.end();
-      res.send(res);
     })();
 });
 
